@@ -48,6 +48,10 @@
     border-color: var(--cor-categoria-comportamento);
 }
 
+.post {
+    margin-top: 1.25rem;
+  }
+
 .posts {
     display: flex;
     flex-direction: column;
