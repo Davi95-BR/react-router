@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { busca } from '../api/api'
 import '../assets/css/componentes/cartao.css'
 
 const Post = () => {
 
+    let history = useHistory()                         // Caso o post não for encontrado ele vai para a página de erro tratada
     const {id} = useParams()                          //useParams faz o match entre a url do post com a id exata
     const[post, setPost] = useState({})
 
     useEffect(() => {      
-        busca(`/posts/${id}`, setPost)                 // Utilizará busca na api                
+        busca(`/posts/${id}`, setPost)                // Utilizará busca na api
+        .catch(()=> {
+            history.push('/404')                     //  Caso a busca não chegar em nenhum post(exibirá uma página com erro)
+        })                           
     }, [id])                                         //Só irá atualizar quando o id for atualizado
                     
 
