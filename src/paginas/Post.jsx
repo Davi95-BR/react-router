@@ -5,7 +5,7 @@ import '../assets/css/componentes/cartao.css'
 
 const Post = () => {
 
-    let history = useHistory()                         // Caso o post não for encontrado ele vai para a página de erro tratada
+    let history = useHistory()  // Possui o método push e através dele conseguimos navegar até a rota indicada, que nesse caso é a rota 404.
     const {id} = useParams()                          //useParams faz o match entre a url do post com a id exata
     const[post, setPost] = useState({})
 
